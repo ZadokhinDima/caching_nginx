@@ -1,0 +1,11 @@
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: emcniece/nginx-cache-purge:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx_proxy.conf:/etc/nginx/nginx.conf
+      - ./content:/usr/share/nginx-content
+    tmpfs:
+      - /mnt/nginx_cache
